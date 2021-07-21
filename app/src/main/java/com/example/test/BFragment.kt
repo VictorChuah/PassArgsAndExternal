@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
@@ -19,8 +20,18 @@ class BFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_b, container, false)
+        val view = inflater.inflate(R.layout.fragment_b, container, false)
 
+        val tv :TextView = view.findViewById(R.id.tvName)
+
+        //val name = arguments?.getString("name")
+        //tv.text = name
+
+        val args = BFragmentArgs.fromBundle((requireArguments()))
+
+        tv.text = args.name
+
+        return view
     }
 
 }
